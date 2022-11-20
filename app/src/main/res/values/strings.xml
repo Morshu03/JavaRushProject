@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">JavaRushProject</string>
     <string name="main_text">Happy Birthday!</string>
+    <string name="button_text">Click on me!</string>
+    <string name="todo">TODO</string>
+    <string name="from_who">From, family</string>
 </resources>
