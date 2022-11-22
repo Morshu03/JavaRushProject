@@ -6,32 +6,33 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/androidparty"
-        android:contentDescription="@string/todo"
-        android:scaleType="centerCrop"
-        />
-
     <TextView
+        android:id="@+id/quantity_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/main_text"
-        android:padding="12dp"
-        android:textColor="@color/pink_A100"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif-light" />
+        android:paddingStart="@dimen/default_android_padding"
+        android:paddingTop="@dimen/default_android_padding"
+        android:text="@string/quantity_title"
+        android:textAllCaps="true" />
 
     <TextView
+        android:id="@+id/quantity_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:text="@string/from_who"
-        android:padding="12dp"
-        android:textColor="@color/pink_A100"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif-light" />
+        android:layout_below="@id/quantity_title"
+        android:paddingStart="@dimen/default_android_padding"
+        android:paddingTop="@dimen/default_android_padding"
+        android:text="@string/quantity_text_view"
+        android:textColor="@color/black" />
 
+    <Button
+        android:id="@+id/btn_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/quantity_text_view"
+        android:layout_marginStart="@dimen/default_android_margin"
+        android:layout_marginTop="@dimen/default_android_margin"
+        android:background="@color/gray_700"
+        android:onClick="submitOrder"
+        android:text="@string/button_text" />
 </RelativeLayout>
