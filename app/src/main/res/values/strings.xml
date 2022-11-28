@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">JavaRushProject</string>
     <string name="quantity_title">Quantity</string>
-    <string name="button_text">Order</string>
+    <string name="button_plus_text">+</string>
+    <string name="button_minus_text">-</string>
     <string name="quantity_text_view">0</string>
 </resources>

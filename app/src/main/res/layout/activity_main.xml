@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -11,40 +10,61 @@
         android:id="@+id/quantity_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/quantity_text_margin"
+        android:layout_marginVertical="@dimen/default_android_margin"
+        android:padding="@dimen/default_android_padding"
         android:text="@string/quantity_title"
         android:textAllCaps="true"
         app:layout_constraintBottom_toTopOf="@id/quantity_text_view"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="@dimen/default_android_margin"
-        android:paddingStart="@dimen/default_android_padding"
-        android:paddingEnd="@dimen/default_android_padding"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/quantity_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/quantity_title"
-        app:layout_constraintBottom_toTopOf="@id/btn_order"
-        app:layout_constraintTop_toBottomOf="@id/quantity_title"
-        android:paddingStart="@dimen/default_android_padding"
-        android:paddingEnd="@dimen/default_android_padding"
-        android:layout_marginTop="@dimen/default_android_margin"
+        android:layout_margin="@dimen/default_android_margin"
+        android:padding="@dimen/default_android_padding"
         android:text="@string/quantity_text_view"
         android:textColor="@color/black"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintLeft_toRightOf="@id/btn_minus"
+        app:layout_constraintTop_toBottomOf="@id/quantity_title" />
 
     <Button
-        android:id="@+id/btn_order"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/quantity_text_view"
-        app:layout_constraintTop_toBottomOf="@id/quantity_text_view"
-        app:layout_constraintBottom_toTopOf="@id/btn_order"
-        android:layout_marginStart="@dimen/default_android_padding"
-        android:layout_marginEnd="@dimen/default_android_padding"
-        android:layout_marginTop="@dimen/default_android_margin"
+        android:id="@+id/btn_plus"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        android:layout_below="@id/quantity_title"
+        android:layout_margin="@dimen/default_android_margin"
         android:background="@color/gray_700"
-        android:text="@string/button_text"
-        tools:ignore="MissingConstraints" />
+        android:text="@string/button_plus_text"
+        android:textColor="@color/white"
+        app:layout_constraintLeft_toRightOf="@id/quantity_text_view"
+        app:layout_constraintTop_toBottomOf="@id/quantity_title" />
+
+    <Button
+        android:id="@+id/btn_minus"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        android:layout_below="@id/quantity_title"
+        android:layout_margin="@dimen/default_android_margin"
+        android:background="@color/gray_700"
+        android:padding="@dimen/default_android_padding"
+        android:text="@string/button_minus_text"
+        android:textColor="@color/white"
+        app:layout_constraintRight_toLeftOf="@id/quantity_text_view"
+        app:layout_constraintTop_toBottomOf="@id/quantity_title" />
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@color/teal_200"
+        android:elevation="6dp"
+        android:translationZ="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 </androidx.constraintlayout.widget.ConstraintLayout>
