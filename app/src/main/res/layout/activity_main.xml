@@ -31,6 +31,19 @@
         app:layout_constraintLeft_toRightOf="@id/btn_minus"
         app:layout_constraintTop_toBottomOf="@id/quantity_title" />
 
+    <ImageButton
+        android:id="@+id/shop_btn"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        app:layout_constraintTop_toBottomOf="@id/quantity_text_view"
+        app:layout_constraintStart_toStartOf="@id/quantity_text_view"
+        app:layout_constraintEnd_toEndOf="@id/quantity_text_view"
+        android:layout_margin="@dimen/default_android_margin"
+        android:src="@drawable/img_462520"
+        android:background="@null"
+        android:scaleType="centerInside"
+        android:adjustViewBounds="true"/>
+
     <Button
         android:id="@+id/btn_plus"
         android:layout_width="@dimen/button_plus_minus_size"
