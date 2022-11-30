@@ -4,4 +4,7 @@
     <dimen name="default_android_margin">16dp</dimen>
     <dimen name="quantity_text_margin">37dp</dimen>
     <dimen name="button_plus_minus_size">50dp</dimen>
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="elevation">6dp</dimen>
+    <dimen name="translationZ">4dp</dimen>
 </resources>

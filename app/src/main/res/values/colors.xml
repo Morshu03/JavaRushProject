@@ -10,4 +10,7 @@
     <color name="yellow_A200">#FFFF00</color>
     <color name="pink_A100">#FF80AB</color>
     <color name="gray_700">#616161</color>
+    <color name="first_background">#168BC34A</color>
+    <color name="second_background">#0F9D58</color>
+    <color name="status_bar_color">#FF0199FF</color>
 </resources>

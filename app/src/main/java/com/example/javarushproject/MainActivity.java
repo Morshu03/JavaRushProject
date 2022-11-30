@@ -1,9 +1,9 @@
 package com.example.javarushproject;
 
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -20,7 +20,14 @@ public class MainActivity extends AppCompatActivity {
     ImageButton shopBtn;
     TextView quantityText;
 
+
     public static final String DEFAULT_VALUE_KEY = "default_value_key";
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +37,17 @@ public class MainActivity extends AppCompatActivity {
         minusBtn = findViewById(R.id.btn_minus);
         shopBtn = findViewById(R.id.shop_btn);
         quantityText = findViewById(R.id.quantity_text_view);
+
         plusBtn.setOnClickListener(view -> {
             defaultValue += count;
             quantityText.setText(String.valueOf(defaultValue));
         });
+
         minusBtn.setOnClickListener(view -> {
             defaultValue -= count;
             quantityText.setText(String.valueOf(defaultValue));
         });
+
         shopBtn.setOnClickListener(view -> {
             if (defaultValue > 0) {
                 Intent myIntent = new Intent(this, SecondActivity.class);
