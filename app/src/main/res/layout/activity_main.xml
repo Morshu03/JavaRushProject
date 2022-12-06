@@ -6,67 +6,57 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/quantity_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="@dimen/quantity_text_margin"
-        android:layout_marginVertical="@dimen/default_android_margin"
-        android:padding="@dimen/default_android_padding"
-        android:text="@string/quantity_title"
-        android:textAllCaps="true"
-        app:layout_constraintBottom_toTopOf="@id/quantity_text_view"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar" />
 
     <TextView
-        android:id="@+id/quantity_text_view"
+        android:id="@+id/quantity_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/quantity_title"
-        android:layout_margin="@dimen/default_android_margin"
-        android:padding="@dimen/default_android_padding"
         android:text="@string/quantity_text_view"
+        android:textSize="@dimen/default_android_text_size"
         android:textColor="@color/black"
-        app:layout_constraintLeft_toRightOf="@id/btn_minus"
-        app:layout_constraintTop_toBottomOf="@id/quantity_title" />
-
-    <ImageButton
-        android:id="@+id/shop_btn"
-        android:layout_width="@dimen/button_plus_minus_size"
-        android:layout_height="@dimen/button_plus_minus_size"
-        app:layout_constraintTop_toBottomOf="@id/quantity_text_view"
-        app:layout_constraintStart_toStartOf="@id/quantity_text_view"
-        app:layout_constraintEnd_toEndOf="@id/quantity_text_view"
-        android:layout_margin="@dimen/default_android_margin"
-        android:src="@drawable/ic_baseline_shopping_cart_24"
-        android:background="@null"
-        android:scaleType="fitXY"
-        android:adjustViewBounds="true"/>
-
-    <Button
-        android:id="@+id/btn_plus"
-        android:layout_width="@dimen/button_plus_minus_size"
-        android:layout_height="@dimen/button_plus_minus_size"
-        android:layout_below="@id/quantity_title"
-        android:layout_margin="@dimen/default_android_margin"
-        android:background="@color/gray_700"
-        android:text="@string/button_plus_text"
-        android:textColor="@color/white"
-        app:layout_constraintLeft_toRightOf="@id/quantity_text_view"
-        app:layout_constraintTop_toBottomOf="@id/quantity_title" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
 
     <Button
         android:id="@+id/btn_minus"
         android:layout_width="@dimen/button_plus_minus_size"
         android:layout_height="@dimen/button_plus_minus_size"
-        android:layout_below="@id/quantity_title"
-        android:layout_margin="@dimen/default_android_margin"
-        android:background="@color/gray_700"
-        android:padding="@dimen/default_android_padding"
+        android:background="@color/pink_A100"
         android:text="@string/button_minus_text"
         android:textColor="@color/white"
-        app:layout_constraintRight_toLeftOf="@id/quantity_text_view"
-        app:layout_constraintTop_toBottomOf="@id/quantity_title" />
+        app:layout_constraintEnd_toStartOf="@+id/quantity_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_plus"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        android:background="@color/pink_A100"
+        android:text="@string/button_plus_text"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toEndOf="@+id/quantity_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/image_button"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_baseline_image_24"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="@id/quantity_text"
+        app:layout_constraintEnd_toEndOf="@id/quantity_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/quantity_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
