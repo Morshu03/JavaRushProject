@@ -10,53 +10,46 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar" />
 
-    <TextView
-        android:id="@+id/quantity_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/quantity_text_view"
-        android:textSize="@dimen/default_android_text_size"
+    <Button
+        android:id="@+id/start_btn"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        android:text="@string/button_start_text"
         android:textColor="@color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        />
-
-    <Button
-        android:id="@+id/btn_minus"
-        android:layout_width="@dimen/button_plus_minus_size"
-        android:layout_height="@dimen/button_plus_minus_size"
+        android:textSize="@dimen/button_text_size"
         android:background="@color/pink_A100"
-        android:text="@string/button_minus_text"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toStartOf="@+id/quantity_text"
+        app:layout_constraintEnd_toStartOf="@id/image_button"
+        app:layout_constraintTop_toBottomOf="@id/second_fragment"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-    <Button
-        android:id="@+id/btn_plus"
-        android:layout_width="@dimen/button_plus_minus_size"
-        android:layout_height="@dimen/button_plus_minus_size"
-        android:background="@color/pink_A100"
-        android:text="@string/button_plus_text"
-        android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@+id/quantity_text"
+    <FrameLayout
+        android:id="@+id/first_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_of_first_fragment"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 
     <ImageButton
         android:id="@+id/image_button"
         android:layout_width="@dimen/button_plus_minus_size"
         android:layout_height="@dimen/button_plus_minus_size"
+        android:background="@null"
         android:scaleType="centerCrop"
         android:src="@drawable/ic_baseline_image_24"
-        android:background="@null"
-        app:layout_constraintStart_toStartOf="@id/quantity_text"
-        app:layout_constraintEnd_toEndOf="@id/quantity_text"
+        app:layout_constraintTop_toBottomOf="@id/second_fragment"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/quantity_text" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/start_btn" />
+
+    <FrameLayout
+        android:id="@+id/second_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_of_second_fragment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/first_fragment" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
