@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".StartFragment">
+
+    <Button
+        android:id="@+id/cat_btn"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        android:background="@color/pink_A100"
+        android:text="@string/button_cat_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/button_text_size"
+        android:layout_marginEnd="@dimen/default_android_margin"
+        android:layout_marginBottom="@dimen/default_android_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/dog_btn"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+
+    <Button
+        android:id="@+id/dog_btn"
+        android:layout_width="@dimen/button_plus_minus_size"
+        android:layout_height="@dimen/button_plus_minus_size"
+        android:background="@color/pink_A100"
+        android:text="@string/button_dog_text"
+        android:textColor="@color/black"
+        android:textSize="@dimen/button_text_size"
+        android:layout_marginBottom="@dimen/default_android_margin"
+        android:layout_marginStart="@dimen/default_android_margin"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/cat_btn"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
