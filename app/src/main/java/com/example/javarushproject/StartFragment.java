@@ -12,41 +12,79 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Objects;
 
 public class StartFragment extends Fragment {
 
+    Button plusBtn, minusBtn, quantityBtn;
+    TextView quantityText;
+    int defValue = 0;
+    int plsMnsCount = 1;
 
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_start, container, false);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_start, container, false);
+        quantityText = view.findViewById(R.id.quantity_text);
+        minusBtn = view.findViewById(R.id.minus_btn);
+        plusBtn = view.findViewById(R.id.plus_btn);
+        quantityBtn = view.findViewById(R.id.quantity_button);
+
+        plusBtn.setOnClickListener(plusView -> {
+            defValue += plsMnsCount;
+            quantityText.setText(String.valueOf(defValue));
+        });
+        minusBtn.setOnClickListener(minusView -> {
+            defValue -= plsMnsCount;
+            quantityText.setText(String.valueOf(defValue));
+        });
+        quantityBtn.setOnClickListener(quantityView -> {
+            if (defValue > 0) {
+                Bundle bundle = new Bundle();
+                bundle.putInt("deep", defValue);
+                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+                FirstFragment firstFragment = new FirstFragment();
+                firstFragment.setArguments(bundle);
+                fragmentTransaction.replace(R.id.first_container, firstFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            } else {
+                Toast.makeText(getActivity().getApplicationContext(), "dygf", Toast.LENGTH_SHORT).show();
+            }
+        });
+        return view;
     }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        Button catBtn, dogBtn;
-
-        dogBtn = view.findViewById(R.id.dog_btn);
-        catBtn = view.findViewById(R.id.cat_btn);
-
-        dogBtn.setOnClickListener(dogView -> replaceFragment());
-        catBtn.setOnClickListener(catView -> replaceFragment());
-
-    }
-    private void replaceFragment() {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-        //Создать новый бандл
-        //положить в бандл по ключу значение (цифорка)
-        //Подкинуть бандл в качестве аргумента в метод replace
-        //android create bundle
-        //android pass string/data/argument to fragment
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        fragmentTransaction.replace(R.id.container, FirstFragment.class, new Bundle(), "tag");
-        fragmentTransaction.addToBackStack(null);
-        fragmentTransaction.commit();
-    }
-
 
 }
+//quantityBtn.setOnClickListener(quantityView -> {
+//Bundle bundle = new Bundle();
+//bundle.putInt("key", defValue);
+//FirstFragment fragment = new FirstFragment();
+//fragment.setArguments(bundle);
+//get
+//});
+//}
+//plusBtn.setOnClickListener(view -> {
+//        defaultValue += count;
+//        quantityText.setText(String.valueOf(defaultValue));
+//    });
+//        minusBtn.setOnClickListener(view -> {
+//        defaultValue -= count;
+//        quantityText.setText(String.valueOf(defaultValue));
+//    });
+//        shopBtn.setOnClickListener(view -> {
+//        if (defaultValue > 0) {
+//            Intent myIntent = new Intent(this, SecondActivity.class);
+//            myIntent.putExtra(DEFAULT_VALUE_KEY, defaultValue);
+//            this.startActivity(myIntent);
+//        } else {
+//            Toast.makeText(this, "dygf", Toast.LENGTH_SHORT).show();
+//        }
+//    });
+//
+
+

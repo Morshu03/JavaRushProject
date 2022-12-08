@@ -7,10 +7,12 @@
     tools:context=".FirstFragment">
 
     <TextView
+        android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/fragment_text"
+        android:text="@string/quantity_text_view"
         android:textSize="@dimen/default_android_text_size"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
