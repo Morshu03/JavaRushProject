@@ -13,9 +13,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity extends AppCompatActivity {
 
-
     Toolbar myToolbar;
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -37,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        myToolbar = findViewById(R.id.toolbar);
 
+        myToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();

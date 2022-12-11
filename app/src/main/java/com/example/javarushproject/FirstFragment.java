@@ -12,20 +12,25 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 public class FirstFragment extends Fragment {
+    public static final String KEY_ITEM_AMOUNT = "keyItemAmount";
     TextView textView;
 
-    // достать цифру из бандла
-    // android how to get value from bundle //fragment
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_first, container, false);
+        return inflater.inflate(R.layout.fragment_first, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         textView = view.findViewById(R.id.text);
-
-
+        requireActivity().setTitle("Cart");
         Bundle bundle = getArguments();
-        int depDep = bundle.getInt("deep");
-        textView.setText(String.valueOf(depDep));
-        return view;
+        int itemAmount = 0;
+        if (bundle != null) {
+            itemAmount = bundle.getInt(KEY_ITEM_AMOUNT);
+        }
+        textView.setText(String.valueOf(itemAmount));
     }
 
 }
