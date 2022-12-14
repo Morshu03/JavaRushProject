@@ -18,6 +18,12 @@ import android.widget.Toast;
 
 import com.example.javarushproject.model.Dog;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
 public class StartFragment extends Fragment {
 
     Button plusBtn, minusBtn, quantityBtn;
@@ -40,11 +46,21 @@ public class StartFragment extends Fragment {
         quantityBtn = view.findViewById(R.id.quantity_button);
         requireActivity().setTitle(R.string.app_name);
         quantityText.setText(String.valueOf(itemAmount));
-        Dog sobaka = new Dog(32, 239);
-        Log.d("TESTEST", "sobaka = " + sobaka.toString());
-        Dog sobaka2 = new Dog(22, 1123);
-        Log.d("TESTEST", "sobaka2 = " + sobaka2.toString());
-        Log.d("TESTEST", "equals = " +  sobaka.equals(sobaka2));
+
+        Dog first_sobaka = new Dog(30, 65, "Аляска");
+        Dog second_sobaka = new Dog(25, 60, "Каспер");
+        Dog third_sobaka = new Dog(12, 35, "Бульдог");
+        Dog fourth_sobaka = new Dog(13, 36, "Значение_знаешь?");
+        Dog fifth_sobaka = new Dog(14, 37, "Буль_ДОГ");
+
+        String[] sobaki = {String.valueOf(first_sobaka), String.valueOf(second_sobaka), String.valueOf(third_sobaka), String.valueOf(fourth_sobaka), String.valueOf(fifth_sobaka)};
+        Log.d("TESTEST", "sobaki =" + Arrays.toString(sobaki));
+
+        //Dog sobaka = new Dog(32, 239);
+        //Log.d("TESTEST", "sobaka = " + sobaka.toString());
+        //Dog sobaka2 = new Dog(22, 1123);
+        //Log.d("TESTEST", "sobaka2 = " + sobaka2.toString());
+        //Log.d("TESTEST", "equals = " +  sobaka.equals(sobaka2));
         plusBtn.setOnClickListener(plusView -> {
             itemAmount += plsMnsCount;
             quantityText.setText(String.valueOf(itemAmount));
