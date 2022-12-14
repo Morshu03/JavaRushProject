@@ -1,13 +1,6 @@
 package com.example.javarushproject;
 
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +9,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.example.javarushproject.model.Dog;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
-import java.util.List;
-import java.util.ListIterator;
 
 public class StartFragment extends Fragment {
 
@@ -53,14 +48,9 @@ public class StartFragment extends Fragment {
         Dog fourth_sobaka = new Dog(13, 36, "Значение_знаешь?");
         Dog fifth_sobaka = new Dog(14, 37, "Буль_ДОГ");
 
-        String[] sobaki = {String.valueOf(first_sobaka), String.valueOf(second_sobaka), String.valueOf(third_sobaka), String.valueOf(fourth_sobaka), String.valueOf(fifth_sobaka)};
-        Log.d("TESTEST", "sobaki =" + Arrays.toString(sobaki));
+        Dog[] dogs = {first_sobaka, second_sobaka, third_sobaka, fourth_sobaka, fifth_sobaka};
+        Log.d("TESTEST", "sobaki =" + Arrays.toString(dogs));
 
-        //Dog sobaka = new Dog(32, 239);
-        //Log.d("TESTEST", "sobaka = " + sobaka.toString());
-        //Dog sobaka2 = new Dog(22, 1123);
-        //Log.d("TESTEST", "sobaka2 = " + sobaka2.toString());
-        //Log.d("TESTEST", "equals = " +  sobaka.equals(sobaka2));
         plusBtn.setOnClickListener(plusView -> {
             itemAmount += plsMnsCount;
             quantityText.setText(String.valueOf(itemAmount));
@@ -73,7 +63,7 @@ public class StartFragment extends Fragment {
             if (itemAmount > 0) {
                 Bundle bundle = new Bundle();
                 bundle.putInt(FirstFragment.KEY_ITEM_AMOUNT, itemAmount);
-                FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
                 FirstFragment firstFragment = new FirstFragment();
                 firstFragment.setArguments(bundle);
@@ -81,7 +71,7 @@ public class StartFragment extends Fragment {
                 fragmentTransaction.addToBackStack(null);
                 fragmentTransaction.commit();
             } else {
-                Toast.makeText(getActivity().getApplicationContext(), "dygf", Toast.LENGTH_SHORT).show();
+                Toast.makeText(requireActivity().getApplicationContext(), "dygf", Toast.LENGTH_SHORT).show();
             }
         });
     }
