@@ -15,6 +15,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.example.javarushproject.model.Animal;
 import com.example.javarushproject.model.Cat;
 import com.example.javarushproject.model.Dog;
 
@@ -49,17 +50,16 @@ public class StartFragment extends Fragment {
         Dog fourth_sobaka = new Dog(13, 36, "Значение_знаешь?");
         Dog fifth_sobaka = new Dog(14, 37, "Буль_ДОГ");
 
-        Dog[] dogs = {first_sobaka, second_sobaka, third_sobaka, fourth_sobaka, fifth_sobaka};
-        Log.d("TESTEST", "sobaki =" + Arrays.toString(dogs));
+        Cat pervaya_koshka = new Cat(15, 15, "Домашнич", 8);
+        Cat vtoraya_koshka = new Cat(10, 12, "Помойнич",1);
+        Cat tretiya_koshka = new Cat(2, 3, "Новорождёныч",8);
+        Cat chetvertaya_koska = new Cat(15, 1, "Приведеныч",0);
+        Cat pyataya_koshka = new Cat(12, 14, "Томыч",3);
 
-        Cat pervaya_koshka = new Cat(15, 15,8, "Домашнич");
-        Cat vtoraya_koshka = new Cat(10, 12, 1, "Помойнич");
-        Cat tretiya_koshka = new Cat(2, 3, 8, "Новорождёныч");
-        Cat chetvertaya_koska = new Cat(15, 1, 0, "Приведеныч");
-        Cat pyataya_koshka = new Cat(12,14, 3, "Томыч");
-
-        Cat[] cats = {pervaya_koshka, vtoraya_koshka, tretiya_koshka, chetvertaya_koska, pyataya_koshka};
-        Log.d("TEST","koshki =" + Arrays.toString(cats));
+        Animal[] animals = {first_sobaka, second_sobaka, third_sobaka, fourth_sobaka, fifth_sobaka, pervaya_koshka, vtoraya_koshka, tretiya_koshka, chetvertaya_koska, pyataya_koshka};
+        for (int i = 0; i < 10; i++){
+            Log.d("TEST", "zhivotnie =" + animals[i].toString());
+        }
 
         plusBtn.setOnClickListener(plusView -> {
             itemAmount += plsMnsCount;
