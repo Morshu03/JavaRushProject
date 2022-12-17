@@ -1,5 +1,6 @@
 package com.example.javarushproject;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -20,6 +21,8 @@ import com.example.javarushproject.model.Cat;
 import com.example.javarushproject.model.Dog;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 public class StartFragment extends Fragment {
 
@@ -51,15 +54,23 @@ public class StartFragment extends Fragment {
         Dog fifth_sobaka = new Dog(14, 37, "Буль_ДОГ");
 
         Cat pervaya_koshka = new Cat(15, 15, "Домашнич", 8);
-        Cat vtoraya_koshka = new Cat(10, 12, "Помойнич",1);
-        Cat tretiya_koshka = new Cat(2, 3, "Новорождёныч",8);
-        Cat chetvertaya_koska = new Cat(15, 1, "Приведеныч",0);
-        Cat pyataya_koshka = new Cat(12, 14, "Томыч",3);
+        Cat vtoraya_koshka = new Cat(10, 12, "Помойнич", 1);
+        Cat tretiya_koshka = new Cat(2, 3, "Новорождёныч", 8);
+        Cat chetvertaya_koska = new Cat(15, 1, "Приведеныч", 0);
+        Cat pyataya_koshka = new Cat(12, 14, "Томыч", 3);
 
         Animal[] animals = {first_sobaka, second_sobaka, third_sobaka, fourth_sobaka, fifth_sobaka, pervaya_koshka, vtoraya_koshka, tretiya_koshka, chetvertaya_koska, pyataya_koshka};
-        for (int i = 0; i < 10; i++){
+        LinkedList<Animal> animals1 = new LinkedList<Animal>();
+        for (int i = 0; i < animals.length; i++) {
             Log.d("TEST", "zhivotnie =" + animals[i].toString());
         }
+        HashMap<String, Animal> animalHashMap = new HashMap<>();
+        animalHashMap.put("Аляск а", first_sobaka);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Log.d("TEST", "mapResult " + animalHashMap.get("Аляска"));
+        }
+
 
         plusBtn.setOnClickListener(plusView -> {
             itemAmount += plsMnsCount;

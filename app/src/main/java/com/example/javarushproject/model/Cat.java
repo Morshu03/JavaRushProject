@@ -12,6 +12,20 @@ public class Cat extends Animal {
         this.lives = lives;
     }
 
+    public int getLives() {
+        return lives;
+    }
+
+    @Override
+    public String toString() {
+        return "Cat{" +
+                "height=" + super.getHeight() +
+                ", weight=" + super.getWeight() +
+                ", name=" + super.getName() +
+                ", lives=" + lives +
+                '}';
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
