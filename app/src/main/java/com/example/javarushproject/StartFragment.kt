@@ -1,3 +1,4 @@
+package com.example.javarushproject
 import android.os.Build
 import android.os.Bundle
 import android.util.Log
@@ -8,24 +9,22 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import com.example.javarushproject.FirstFragment
-import com.example.javarushproject.R
 import com.example.javarushproject.model.Animal
 import com.example.javarushproject.model.Cat
 import com.example.javarushproject.model.Dog
-import java.util.*
+
 
 class StartFragment : Fragment() {
-    lateinit var quantityText: TextView
-    var plusBtn: Button? = null
-    var minusBtn: Button? = null
-    var quantityBtn: Button? = null
-    var itemAmount = 0
-    var plsMnsCount = 1
+    private lateinit var quantityText: TextView
+    private lateinit var plusBtn: Button
+    private lateinit var minusBtn: Button
+    private lateinit var quantityBtn: Button
+    private var itemAmount = 0
+    private var plsMnsCount = 1
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_start, container, false)
     }
@@ -49,18 +48,18 @@ class StartFragment : Fragment() {
         val chetvertaya_koska = Cat(15, 1, "Приведеныч", 0)
         val pyataya_koshka = Cat(12, 14, "Томыч", 3)
         val animals = arrayOf(
-            first_sobaka,
-            second_sobaka,
-            third_sobaka,
-            fourth_sobaka,
-            fifth_sobaka,
-            pervaya_koshka,
-            vtoraya_koshka,
-            tretiya_koshka,
-            chetvertaya_koska,
-            pyataya_koshka
+                first_sobaka,
+                second_sobaka,
+                third_sobaka,
+                fourth_sobaka,
+                fifth_sobaka,
+                pervaya_koshka,
+                vtoraya_koshka,
+                tretiya_koshka,
+                chetvertaya_koska,
+                pyataya_koshka
         )
-        val animals1 = LinkedList<Animal>()
+
         for (i in animals.indices) {
             Log.d("TEST", "zhivotnie =" + animals[i].toString())
         }
@@ -69,22 +68,22 @@ class StartFragment : Fragment() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             Log.d("TEST", "mapResult " + animalHashMap["Аляска"])
         }
-        plusBtn.setOnClickListener(View.OnClickListener { plusView: View? ->
+        plusBtn.setOnClickListener {
             itemAmount += plsMnsCount
-            quantityText.setText(itemAmount.toString())
-        })
-        minusBtn.setOnClickListener(View.OnClickListener { minusView: View? ->
+            quantityText.text = itemAmount.toString()
+        }
+        minusBtn.setOnClickListener {
             itemAmount -= plsMnsCount
-            quantityText.setText(itemAmount.toString())
-        })
-        quantityBtn.setOnClickListener(View.OnClickListener { quantityView: View? ->
+            quantityText.text = itemAmount.toString()
+        }
+        quantityBtn.setOnClickListener {
             if (itemAmount > 0) {
                 val bundle = Bundle()
                 bundle.putInt(FirstFragment.KEY_ITEM_AMOUNT, itemAmount)
                 val fragmentManager =
-                    requireActivity().supportFragmentManager
+                        requireActivity().supportFragmentManager
                 val fragmentTransaction =
-                    fragmentManager.beginTransaction()
+                        fragmentManager.beginTransaction()
                 val firstFragment = FirstFragment()
                 firstFragment.arguments = bundle
                 fragmentTransaction.replace(R.id.first_container, firstFragment)
@@ -92,11 +91,11 @@ class StartFragment : Fragment() {
                 fragmentTransaction.commit()
             } else {
                 Toast.makeText(
-                    requireActivity().applicationContext,
-                    "dygf",
-                    Toast.LENGTH_SHORT
+                        requireActivity().applicationContext,
+                        "dygf",
+                        Toast.LENGTH_SHORT
                 ).show()
             }
-        })
+        }
     }
 }
