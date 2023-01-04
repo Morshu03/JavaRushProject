@@ -2,7 +2,19 @@ package com.example.javarushproject.model
 
 import java.util.*
 
-open class Animal(val height: Int, val weight: Int, val name: String) {
+open class Animal(private val height: Int, private val weight: Int, private val name: String) {
+
+    fun getHeight(): Int {
+        return height
+    }
+
+    fun getWeight(): Int {
+        return weight
+    }
+
+    fun getName(): String {
+        return name
+    }
 
     override fun toString(): String {
         return "animal{" +

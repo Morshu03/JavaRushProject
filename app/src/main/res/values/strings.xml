@@ -8,4 +8,7 @@
     <string name="fragment_text">Hello! It is a first fragment!</string>
     <string name="quantity_text_view">0</string>
     <string name="dog_name">No name</string>
+    <string name="height">Height</string>
+    <string name="weight">Weight</string>
+    <string name="name">Name</string>
 </resources>

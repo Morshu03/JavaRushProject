@@ -6,9 +6,9 @@ class Cat(height: Int, weight: Int, name: String?, private val lives: Int) : Ani
 
     override fun toString(): String {
         return "Cat{" +
-                "height=" + super.height +
-                ", weight=" + super.weight +
-                ", name=" + super.name +
+                "height=" + super.getHeight() +
+                ", weight=" + super.getWeight() +
+                ", name=" + super.getName() +
                 ", lives=" + lives +
                 '}'
     }

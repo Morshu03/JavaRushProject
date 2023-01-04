@@ -37,37 +37,7 @@ class StartFragment : Fragment() {
         quantityBtn = view.findViewById(R.id.quantity_button)
         requireActivity().setTitle(R.string.app_name)
         quantityText.text = itemAmount.toString()
-        val first_sobaka = Dog(30, 65, "Аляска")
-        val second_sobaka = Dog(25, 60, "Каспер")
-        val third_sobaka = Dog(12, 35, "Бульдог")
-        val fourth_sobaka = Dog(13, 36, "Значение_знаешь?")
-        val fifth_sobaka = Dog(14, 37, "Буль_ДОГ")
-        val pervaya_koshka = Cat(15, 15, "Домашнич", 8)
-        val vtoraya_koshka = Cat(10, 12, "Помойнич", 1)
-        val tretiya_koshka = Cat(2, 3, "Новорождёныч", 8)
-        val chetvertaya_koska = Cat(15, 1, "Приведеныч", 0)
-        val pyataya_koshka = Cat(12, 14, "Томыч", 3)
-        val animals = arrayOf(
-                first_sobaka,
-                second_sobaka,
-                third_sobaka,
-                fourth_sobaka,
-                fifth_sobaka,
-                pervaya_koshka,
-                vtoraya_koshka,
-                tretiya_koshka,
-                chetvertaya_koska,
-                pyataya_koshka
-        )
 
-        for (i in animals.indices) {
-            Log.d("TEST", "zhivotnie =" + animals[i].toString())
-        }
-        val animalHashMap = HashMap<String, Animal>()
-        animalHashMap["Аляск а"] = first_sobaka
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            Log.d("TEST", "mapResult " + animalHashMap["Аляска"])
-        }
         plusBtn.setOnClickListener {
             itemAmount += plsMnsCount
             quantityText.text = itemAmount.toString()
